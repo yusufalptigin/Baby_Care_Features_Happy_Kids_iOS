@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bath" representedClassName="Bath" syncable="YES" codeGenerationType="class">
+        <attribute name="end_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="start_date" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Bottle" representedClassName="Bottle" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="choice" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+    </entity>
+    <entity name="Diaper" representedClassName="Diaper" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+    </entity>
+    <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="food" attributeType="String"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+    </entity>
+    <entity name="Health" representedClassName="Health" syncable="YES" codeGenerationType="class">
+        <attribute name="choice_index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="choice_name" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="note" attributeType="String"/>
+    </entity>
+    <entity name="Milking" representedClassName="Milking" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="breast" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+    </entity>
+    <entity name="Nursing" representedClassName="Nursing" syncable="YES" codeGenerationType="class">
+        <attribute name="end_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="left_timer" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="nursing_option" attributeType="String"/>
+        <attribute name="right_timer" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="start_date" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Sleep" representedClassName="Sleep" syncable="YES" codeGenerationType="class">
+        <attribute name="end_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="start_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timer_sleep" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Travel" representedClassName="Travel" syncable="YES" codeGenerationType="class">
+        <attribute name="end_date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image_data" optional="YES" attributeType="Binary"/>
+        <attribute name="location" attributeType="String"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="start_date" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+</model>

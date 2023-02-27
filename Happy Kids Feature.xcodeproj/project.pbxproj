@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D05AC1129ACC21B0004572D /* Health Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05AC1029ACC21B0004572D /* Health Displays.swift */; };
+		8D05AC1329ACDBE80004572D /* UIKit Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05AC1229ACDBE80004572D /* UIKit Textfield.swift */; };
+		8D1A702129A4B77B006A4128 /* Add Choices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A702029A4B77B006A4128 /* Add Choices.swift */; };
+		8D1A702329A4C8E1006A4128 /* Add Health Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A702229A4C8E1006A4128 /* Add Health Object.swift */; };
+		8D21536B29A387A700B205B2 /* Pdf Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21536A29A387A700B205B2 /* Pdf Displays.swift */; };
+		8D5F8F992991475000D0A979 /* Happy_Kids_FeatureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F8F982991475000D0A979 /* Happy_Kids_FeatureApp.swift */; };
+		8D5F8F9B2991475000D0A979 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F8F9A2991475000D0A979 /* ContentView.swift */; };
+		8D5F8F9D2991475200D0A979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F8F9C2991475200D0A979 /* Assets.xcassets */; };
+		8D5F8FA02991475200D0A979 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F8F9F2991475200D0A979 /* Preview Assets.xcassets */; };
+		8D5F8FA72991497B00D0A979 /* Baby Care.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F8FA62991497B00D0A979 /* Baby Care.swift */; };
+		8D5F8FB4299157D100D0A979 /* Functionality Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F8FB3299157D100D0A979 /* Functionality Helpers.swift */; };
+		8D9C7595299A24D90068854F /* Baby Care Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9C7594299A24D90068854F /* Baby Care Displays.swift */; };
+		8DA7D40529924630005C219F /* Page Creation Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7D40429924630005C219F /* Page Creation Helpers.swift */; };
+		8DA7D40829928F57005C219F /* HK Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7D40629928F57005C219F /* HK Models.xcdatamodeld */; };
+		8DA7D40B29929308005C219F /* HK Models Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7D40A29929308005C219F /* HK Models Manager.swift */; };
+		8DBAC9CC29A621850015ACC0 /* Add Food Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAC9CB29A621850015ACC0 /* Add Food Object.swift */; };
+		8DBAC9CE29A667DD0015ACC0 /* Console Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAC9CD29A667DD0015ACC0 /* Console Models.swift */; };
+		8DC3060429A4FF0A002AE4CD /* Food Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060329A4FF0A002AE4CD /* Food Displays.swift */; };
+		8DC3060629A4FF38002AE4CD /* Activity Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060529A4FF38002AE4CD /* Activity Displays.swift */; };
+		8DC3060929A4FFE0002AE4CD /* Add Activity Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060829A4FFE0002AE4CD /* Add Activity Object.swift */; };
+		8DD5BEC929940619009D562F /* HK Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5BEC829940619009D562F /* HK Models.swift */; };
+		8DD6254A2993AC8100008269 /* HK View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD625492993AC8100008269 /* HK View Model.swift */; };
+		8DD6254C2993BAFE00008269 /* Camera Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6254B2993BAFE00008269 /* Camera Picker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8D05AC1029ACC21B0004572D /* Health Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health Displays.swift"; sourceTree = "<group>"; };
+		8D05AC1229ACDBE80004572D /* UIKit Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit Textfield.swift"; sourceTree = "<group>"; };
+		8D1A702029A4B77B006A4128 /* Add Choices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Choices.swift"; sourceTree = "<group>"; };
+		8D1A702229A4C8E1006A4128 /* Add Health Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Health Object.swift"; sourceTree = "<group>"; };
+		8D21536A29A387A700B205B2 /* Pdf Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pdf Displays.swift"; sourceTree = "<group>"; };
+		8D5F8F952991475000D0A979 /* Happy Kids Feature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Kids Feature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5F8F982991475000D0A979 /* Happy_Kids_FeatureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_Kids_FeatureApp.swift; sourceTree = "<group>"; };
+		8D5F8F9A2991475000D0A979 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8D5F8F9C2991475200D0A979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D5F8F9F2991475200D0A979 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D5F8FA62991497B00D0A979 /* Baby Care.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Baby Care.swift"; sourceTree = "<group>"; };
+		8D5F8FB3299157D100D0A979 /* Functionality Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Functionality Helpers.swift"; sourceTree = "<group>"; };
+		8D9C7594299A24D90068854F /* Baby Care Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Baby Care Displays.swift"; sourceTree = "<group>"; };
+		8DA7D40429924630005C219F /* Page Creation Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page Creation Helpers.swift"; sourceTree = "<group>"; };
+		8DA7D40729928F57005C219F /* Baby Care Models.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Baby Care Models.xcdatamodel"; sourceTree = "<group>"; };
+		8DA7D40A29929308005C219F /* HK Models Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HK Models Manager.swift"; sourceTree = "<group>"; };
+		8DBAC9CB29A621850015ACC0 /* Add Food Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Food Object.swift"; sourceTree = "<group>"; };
+		8DBAC9CD29A667DD0015ACC0 /* Console Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Console Models.swift"; sourceTree = "<group>"; };
+		8DC3060329A4FF0A002AE4CD /* Food Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food Displays.swift"; sourceTree = "<group>"; };
+		8DC3060529A4FF38002AE4CD /* Activity Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity Displays.swift"; sourceTree = "<group>"; };
+		8DC3060829A4FFE0002AE4CD /* Add Activity Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Activity Object.swift"; sourceTree = "<group>"; };
+		8DD5BEC829940619009D562F /* HK Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HK Models.swift"; sourceTree = "<group>"; };
+		8DD625492993AC8100008269 /* HK View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HK View Model.swift"; sourceTree = "<group>"; };
+		8DD6254B2993BAFE00008269 /* Camera Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Camera Picker.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5F8F922991475000D0A979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D5F8F8C2991475000D0A979 = {
+			isa = PBXGroup;
+			children = (
+				8D5F8F972991475000D0A979 /* Happy Kids Feature */,
+				8D5F8F962991475000D0A979 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D5F8F962991475000D0A979 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5F8F952991475000D0A979 /* Happy Kids Feature.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D5F8F972991475000D0A979 /* Happy Kids Feature */ = {
+			isa = PBXGroup;
+			children = (
+				8DA7D409299292C0005C219F /* Manager */,
+				8D5F8FB1299156EB00D0A979 /* Helpers */,
+				8D5F8FB2299156F300D0A979 /* Views */,
+				8D5F8F982991475000D0A979 /* Happy_Kids_FeatureApp.swift */,
+				8D5F8F9A2991475000D0A979 /* ContentView.swift */,
+				8D5F8F9C2991475200D0A979 /* Assets.xcassets */,
+				8D5F8F9E2991475200D0A979 /* Preview Content */,
+			);
+			path = "Happy Kids Feature";
+			sourceTree = "<group>";
+		};
+		8D5F8F9E2991475200D0A979 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8D5F8F9F2991475200D0A979 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D5F8FB1299156EB00D0A979 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8DC3060729A4FF8B002AE4CD /* Baby Care Displays */,
+				8DD6254B2993BAFE00008269 /* Camera Picker.swift */,
+				8DBAC9CD29A667DD0015ACC0 /* Console Models.swift */,
+				8D05AC1229ACDBE80004572D /* UIKit Textfield.swift */,
+				8D5F8FB3299157D100D0A979 /* Functionality Helpers.swift */,
+				8DA7D40429924630005C219F /* Page Creation Helpers.swift */,
+				8D21536A29A387A700B205B2 /* Pdf Displays.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8D5F8FB2299156F300D0A979 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D5F8FA62991497B00D0A979 /* Baby Care.swift */,
+				8D1A702029A4B77B006A4128 /* Add Choices.swift */,
+				8D1A702229A4C8E1006A4128 /* Add Health Object.swift */,
+				8DC3060829A4FFE0002AE4CD /* Add Activity Object.swift */,
+				8DBAC9CB29A621850015ACC0 /* Add Food Object.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8DA7D409299292C0005C219F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8DA7D40629928F57005C219F /* HK Models.xcdatamodeld */,
+				8DA7D40A29929308005C219F /* HK Models Manager.swift */,
+				8DD625492993AC8100008269 /* HK View Model.swift */,
+				8DD5BEC829940619009D562F /* HK Models.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8DC3060729A4FF8B002AE4CD /* Baby Care Displays */ = {
+			isa = PBXGroup;
+			children = (
+				8DC3060529A4FF38002AE4CD /* Activity Displays.swift */,
+				8D9C7594299A24D90068854F /* Baby Care Displays.swift */,
+				8DC3060329A4FF0A002AE4CD /* Food Displays.swift */,
+				8D05AC1029ACC21B0004572D /* Health Displays.swift */,
+			);
+			path = "Baby Care Displays";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5F8F942991475000D0A979 /* Happy Kids Feature */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D5F8FA32991475200D0A979 /* Build configuration list for PBXNativeTarget "Happy Kids Feature" */;
+			buildPhases = (
+				8D5F8F912991475000D0A979 /* Sources */,
+				8D5F8F922991475000D0A979 /* Frameworks */,
+				8D5F8F932991475000D0A979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Happy Kids Feature";
+			productName = "Happy Kids Feature";
+			productReference = 8D5F8F952991475000D0A979 /* Happy Kids Feature.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D5F8F8D2991475000D0A979 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8D5F8F942991475000D0A979 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 8D5F8F902991475000D0A979 /* Build configuration list for PBXProject "Happy Kids Feature" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D5F8F8C2991475000D0A979;
+			productRefGroup = 8D5F8F962991475000D0A979 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5F8F942991475000D0A979 /* Happy Kids Feature */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5F8F932991475000D0A979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5F8FA02991475200D0A979 /* Preview Assets.xcassets in Resources */,
+				8D5F8F9D2991475200D0A979 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5F8F912991475000D0A979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DBAC9CC29A621850015ACC0 /* Add Food Object.swift in Sources */,
+				8DA7D40529924630005C219F /* Page Creation Helpers.swift in Sources */,
+				8D05AC1329ACDBE80004572D /* UIKit Textfield.swift in Sources */,
+				8D5F8FA72991497B00D0A979 /* Baby Care.swift in Sources */,
+				8DA7D40829928F57005C219F /* HK Models.xcdatamodeld in Sources */,
+				8DD6254C2993BAFE00008269 /* Camera Picker.swift in Sources */,
+				8D5F8FB4299157D100D0A979 /* Functionality Helpers.swift in Sources */,
+				8D5F8F9B2991475000D0A979 /* ContentView.swift in Sources */,
+				8D05AC1129ACC21B0004572D /* Health Displays.swift in Sources */,
+				8D1A702129A4B77B006A4128 /* Add Choices.swift in Sources */,
+				8DA7D40B29929308005C219F /* HK Models Manager.swift in Sources */,
+				8D21536B29A387A700B205B2 /* Pdf Displays.swift in Sources */,
+				8DC3060929A4FFE0002AE4CD /* Add Activity Object.swift in Sources */,
+				8DD6254A2993AC8100008269 /* HK View Model.swift in Sources */,
+				8D5F8F992991475000D0A979 /* Happy_Kids_FeatureApp.swift in Sources */,
+				8D1A702329A4C8E1006A4128 /* Add Health Object.swift in Sources */,
+				8D9C7595299A24D90068854F /* Baby Care Displays.swift in Sources */,
+				8DBAC9CE29A667DD0015ACC0 /* Console Models.swift in Sources */,
+				8DC3060629A4FF38002AE4CD /* Activity Displays.swift in Sources */,
+				8DD5BEC929940619009D562F /* HK Models.swift in Sources */,
+				8DC3060429A4FF0A002AE4CD /* Food Displays.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8D5F8FA12991475200D0A979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8D5F8FA22991475200D0A979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D5F8FA42991475200D0A979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Happy Kids Feature/Preview Content\"";
+				DEVELOPMENT_TEAM = 722PKUG89W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotoğraf çekebilmemiz için kameraya erişim izniniz gerekiyor.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Çektiğimiz fotoğrafları kaydedebilmemiz için galeriye erişim izniniz gerekiyor.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Happy-Digital.Happy-Kids-Feature";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D5F8FA52991475200D0A979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Happy Kids Feature/Preview Content\"";
+				DEVELOPMENT_TEAM = 722PKUG89W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotoğraf çekebilmemiz için kameraya erişim izniniz gerekiyor.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Çektiğimiz fotoğrafları kaydedebilmemiz için galeriye erişim izniniz gerekiyor.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Happy-Digital.Happy-Kids-Feature";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D5F8F902991475000D0A979 /* Build configuration list for PBXProject "Happy Kids Feature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D5F8FA12991475200D0A979 /* Debug */,
+				8D5F8FA22991475200D0A979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D5F8FA32991475200D0A979 /* Build configuration list for PBXNativeTarget "Happy Kids Feature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D5F8FA42991475200D0A979 /* Debug */,
+				8D5F8FA52991475200D0A979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8DA7D40629928F57005C219F /* HK Models.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8DA7D40729928F57005C219F /* Baby Care Models.xcdatamodel */,
+			);
+			currentVersion = 8DA7D40729928F57005C219F /* Baby Care Models.xcdatamodel */;
+			path = "HK Models.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8D5F8F8D2991475000D0A979 /* Project object */;
+}
