@@ -24,7 +24,7 @@ struct Diaper_Objects_Display: View {
                 ) { ZStack {
                         Rectangle().fill(Color.navBarColorLight).cornerRadius(screenWidth * 0.065)
                         HStack(alignment: .top, spacing: 0){
-                            Circle_Icon_Display(iconText: "powersleep")
+                            Circle_Icon_Display_Image(iconText: "diaper")
                             ZStack (alignment: .leading){
                                 Long_Invisible_Text()
                                 VStack(alignment: .leading){

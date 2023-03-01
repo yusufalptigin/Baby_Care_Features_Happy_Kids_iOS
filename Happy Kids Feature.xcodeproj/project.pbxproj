@@ -24,6 +24,7 @@
 		8DA7D40B29929308005C219F /* HK Models Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA7D40A29929308005C219F /* HK Models Manager.swift */; };
 		8DBAC9CC29A621850015ACC0 /* Add Food Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAC9CB29A621850015ACC0 /* Add Food Object.swift */; };
 		8DBAC9CE29A667DD0015ACC0 /* Console Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAC9CD29A667DD0015ACC0 /* Console Models.swift */; };
+		8DBD464529AF67BC00E5666C /* iOS 14.0+ Share PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD464429AF67BC00E5666C /* iOS 14.0+ Share PDF.swift */; };
 		8DC3060429A4FF0A002AE4CD /* Food Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060329A4FF0A002AE4CD /* Food Displays.swift */; };
 		8DC3060629A4FF38002AE4CD /* Activity Displays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060529A4FF38002AE4CD /* Activity Displays.swift */; };
 		8DC3060929A4FFE0002AE4CD /* Add Activity Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3060829A4FFE0002AE4CD /* Add Activity Object.swift */; };
@@ -51,6 +52,7 @@
 		8DA7D40A29929308005C219F /* HK Models Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HK Models Manager.swift"; sourceTree = "<group>"; };
 		8DBAC9CB29A621850015ACC0 /* Add Food Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Food Object.swift"; sourceTree = "<group>"; };
 		8DBAC9CD29A667DD0015ACC0 /* Console Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Console Models.swift"; sourceTree = "<group>"; };
+		8DBD464429AF67BC00E5666C /* iOS 14.0+ Share PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS 14.0+ Share PDF.swift"; sourceTree = "<group>"; };
 		8DC3060329A4FF0A002AE4CD /* Food Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food Displays.swift"; sourceTree = "<group>"; };
 		8DC3060529A4FF38002AE4CD /* Activity Displays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity Displays.swift"; sourceTree = "<group>"; };
 		8DC3060829A4FFE0002AE4CD /* Add Activity Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Activity Object.swift"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				8D5F8FB3299157D100D0A979 /* Functionality Helpers.swift */,
 				8DA7D40429924630005C219F /* Page Creation Helpers.swift */,
 				8D21536A29A387A700B205B2 /* Pdf Displays.swift */,
+				8DBD464429AF67BC00E5666C /* iOS 14.0+ Share PDF.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				8DD6254A2993AC8100008269 /* HK View Model.swift in Sources */,
 				8D5F8F992991475000D0A979 /* Happy_Kids_FeatureApp.swift in Sources */,
 				8D1A702329A4C8E1006A4128 /* Add Health Object.swift in Sources */,
+				8DBD464529AF67BC00E5666C /* iOS 14.0+ Share PDF.swift in Sources */,
 				8D9C7595299A24D90068854F /* Baby Care Displays.swift in Sources */,
 				8DBAC9CE29A667DD0015ACC0 /* Console Models.swift in Sources */,
 				8DC3060629A4FF38002AE4CD /* Activity Displays.swift in Sources */,
@@ -386,7 +390,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +423,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

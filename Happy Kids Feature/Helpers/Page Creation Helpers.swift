@@ -73,6 +73,17 @@ struct Circle_Icon_Display: View {
     }
 }
 
+struct Circle_Icon_Display_Image: View {
+    
+    let iconText: String
+    
+    var body: some View {
+        Image(iconText).renderingMode(.template)
+            .resizable().padding(12).background(Color.navBarColorLight).aspectRatio(1.0, contentMode: .fit)
+            .clipShape(Circle()).padding([.top, .leading, .bottom], 5).foregroundColor(Color.navBarColor)
+    }
+}
+
 struct Status_Bar_Color_Display: View {
     
     var body: some View {
@@ -128,7 +139,7 @@ struct Choice_Circle_And_Name_View: View {
                 .foregroundColor(Color.navBarColor).background(Color.navBarColorLight).clipShape(Circle())
             Text(choiceName).font(.footnote).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             Spacer()
-        }.frame(width: screenWidth * 0.16, height: screenHeight * 0.14)
+        }.frame(width: screenWidth * 0.16, height: screenHeight * 0.14).foregroundColor(.black)
     }
 }
 
@@ -153,50 +164,6 @@ struct Date_Button: View {
     }
 }
 
-struct Dropdown_Button: View {
-    
-    @Binding var text: String
-    
-    var body: some View {
-        Rectangle()
-            .strokeBorder(Color.navBarColor, lineWidth: 4)
-            .background(Rectangle().fill(Color.navBarColorLight))
-            .cornerRadius(5)
-            .overlay(HStack{
-                Spacer().frame(width: screenWidth * 0.04)
-                Text(text).foregroundColor(Color.black)
-                Spacer()
-                Image(systemName: "chevron.down").foregroundColor(.black)
-                Spacer().frame(width: screenWidth * 0.04)
-            })
-            .frame(width: screenWidth * 0.9, height: screenHeight * 0.07)
-    }
-}
-
-struct Custom_Dropdown_Button: View {
-    
-    @FocusState private var focusKeyboard: Bool
-    @State var showLocation: Bool = false
-    @State var choiceText: String = ""
-    @Binding var bindingText: String
-    let isDecimalPadKeyboard: Bool
-    
-    var body: some View {
-        VStack {
-            Button(action: { showLocation.toggle() }){ Dropdown_Button(text: $bindingText) }
-        }.alert("", isPresented: $showLocation) {
-            TextField("Ekleyin...", text: $choiceText).disableAutocorrection(true).textInputAutocapitalization(.never).padding()
-                .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { focusKeyboard = true } }.focused($focusKeyboard)
-                .keyboardType(isDecimalPadKeyboard ? .decimalPad : .default)
-                .toolbar { ToolbarItemGroup(placement: .keyboard) {
-                        Text("")
-                        Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }
-            Button("İptal", action: {}).keyboardShortcut(.defaultAction)
-            Button("Ekle", action: { bindingText = choiceText } )
-        }
-    }
-}
-
 struct Start_and_End_Dates: View {
     
     @Binding var showStartDatePicker: Bool
@@ -216,18 +183,22 @@ struct Start_and_End_Dates: View {
             Date_Button(showSheet: $showEndDatePicker, date: $endDate)
             Spacer().frame(height: screenHeight * 0.02)
         }.sheet(isPresented: $showStartDatePicker){
-            DatePicker("", selection: $startDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
-                .datePickerStyle(.wheel).labelsHidden().frame(height: screenHeight * 0.3)
+            if #available(iOS 16.0, *) {
+                DatePicker("", selection: $startDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.wheel).labelsHidden().presentationDetents([.fraction(0.3)])
+            } else {
+                DatePicker("", selection: $startDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.graphical).labelsHidden()
+            }
         }
         .sheet(isPresented: $showEndDatePicker){
-            DatePicker("", selection: $endDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
-                .datePickerStyle(.wheel).labelsHidden().frame(height: screenHeight * 0.3)
-                /*
-                 .presentationDetents([.fraction(0.3)])
-                 */
-                
-        }.onAppear{
-            //UIPopoverPresentationController().preferredContentSize = CGSize(width: 100, height: 100)
+            if #available(iOS 16.0, *) {
+                DatePicker("", selection: $endDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.wheel).labelsHidden().presentationDetents([.fraction(0.3)])
+            } else {
+                DatePicker("", selection: $startDate, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.graphical).labelsHidden()
+            }
         }
     }
 }
@@ -245,8 +216,13 @@ struct Date_Selection_Button: View {
             Date_Button(showSheet: $datePicker, date: $date)
             Spacer().frame(height: screenHeight * 0.02)
         }.sheet(isPresented: $datePicker){
-            DatePicker("", selection: $date, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
-                .datePickerStyle(.wheel).labelsHidden().frame(height: screenHeight * 0.3)
+            if #available(iOS 16.0, *) {
+                DatePicker("", selection: $date, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.wheel).labelsHidden().presentationDetents([.fraction(0.3)])
+            } else {
+                DatePicker("", selection: $date, in: dateClosedRange, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.graphical).labelsHidden()
+            }
         }
     }    
 }
@@ -275,117 +251,159 @@ struct Timer_and_Button: View {
     }
 }
 
-struct Custom_Textfield: View {
+struct Custom_TextField: View {
     
-    @FocusState private var focusKeyboard: Bool
     @Binding var text: String
+    @State var textStyle = UIFont.TextStyle.body
+    let keyboardTpye: UIKeyboardType
+    let placeholderText: String
     
     var body: some View {
-        ZStack{
-            TextEditor(text: $text).toolbar { ToolbarItemGroup(placement: .keyboard) {
-                Text("")
-                Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }
-            if text == "" { Text("Not Ekle...").foregroundColor(.gray) }
-        }
-        /*
-         TextField(text: $text, axis: .vertical) {Text("Not Ekle...").foregroundColor(.gray)}
-                 .disableAutocorrection(true).textInputAutocapitalization(.never).padding()
-                 .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.navBarColor, lineWidth: 4))
-                 .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { focusKeyboard = true } }
-                 .focused($focusKeyboard)
-                 .toolbar { ToolbarItemGroup(placement: .keyboard) {
-                         Text("")
-                         Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }*/
+        ZStack(alignment: .topLeading){
+            UITextFieldViewRepresentable(text: $text, textStyle: $textStyle, keyboardType: keyboardTpye)
+            if text == "" {Text(placeholderText).padding(EdgeInsets(top: 10, leading: 9, bottom: 0, trailing: 0)).foregroundColor(.gray) }
+        }.frame(height: screenHeight * 0.05)
     }
 }
 
 struct Notes_and_Picture: View {
     
     @EnvironmentObject var hkViewModel: HKViewModel
-    @FocusState private var focusKeyboard: Bool
+    // iOS 15.0+ @FocusState private var focusKeyboard: Bool
     @Binding var selectedImageData: Data?
     @Binding var note: String
+    @State var textStyle = UIFont.TextStyle.body
+    @State var textHeight: CGFloat = .zero
     @State var errorText: String = ""
     @State var showError: Bool = false
     @State var showActionSheet: Bool = false
     @State var showPhotosPicker: Bool = false
     @State var showCamera: Bool = false
     @State var showGallery: Bool = false
+    @State private var message = ""
+
     /* iOS 16
      @State var selectedPhotos: [PhotosPickerItem] = []
      */
     
     var body: some View {
-        VStack{
-            VStack(alignment: .leading){
-                Divider().frame(height: screenHeight * 0.001).overlay(.gray)
-                Spacer().frame(height: screenHeight * 0.02)
-                Text("Notlarım")
-                Spacer().frame(height: screenHeight * 0.009)
-                UITextFieldViewRepresentable(text: $note, placeholderText: "Not Ekle...").frame(width: screenWidth * 0.9)
-                TextField(text: $note) {Text("Not Ekle...").foregroundColor(.gray)}
-                        .disableAutocorrection(true).textInputAutocapitalization(.never).padding()
-                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.navBarColor, lineWidth: 4))
-                        .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { focusKeyboard = true } }
-                        .focused($focusKeyboard)
-                        .toolbar { ToolbarItemGroup(placement: .keyboard) {
-                                Text("")
-                                Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }
-                Spacer().frame(height: screenHeight * 0.02)
-            }
-            if let data = selectedImageData, let uiImage = UIImage(data: data) {
-                ZStack(alignment: .topTrailing) {
-                    Button(action: {showActionSheet.toggle()}){
-                        Image(uiImage: uiImage).resizable().frame(maxHeight: screenHeight * 0.4).cornerRadius(20)
-                    }.buttonStyle(.plain)
-                    Button(action: { selectedImageData = nil }) {
-                        Circle().fill(Color.navBarColor)
-                            .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
-                            .overlay(Image(systemName: "trash").foregroundColor(.white))
-                            .shadow(radius: 2).padding(5)
-                    }.buttonStyle(.plain)
+        if #available(iOS 15.0, *) {
+            VStack{
+                VStack(alignment: .leading){
+                    Rectangle().fill(.gray).frame(height: screenHeight * 0.001).cornerRadius(50)
+                    Spacer().frame(height: screenHeight * 0.02)
+                    Text("Notlarım")
+                    Spacer().frame(height: screenHeight * 0.009)
+                    ZStack(alignment: .topLeading){
+                        UITextFieldViewRepresentable(text: $note, textStyle: $textStyle, keyboardType: .default)
+                        if note == "" { Text("Not Ekle...").padding(EdgeInsets(top: 10, leading: 9, bottom: 0, trailing: 0)).foregroundColor(.gray) }
+                    }.frame(width: screenWidth * 0.9, height: screenHeight * 0.1)
+                    /* iOS 15.0+
+                     TextField(text: $note) {Text("Not Ekle...").foregroundColor(.gray)}
+                             .disableAutocorrection(true).textInputAutocapitalization(.never).padding()
+                             .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.navBarColor, lineWidth: 4))
+                             .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { focusKeyboard = true } }
+                             .focused($focusKeyboard)
+                             .toolbar { ToolbarItemGroup(placement: .keyboard) {
+                                     Text("")
+                                     Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }
+                     */
+                    Spacer().frame(height: screenHeight * 0.02)
                 }
-            } else {
-                VStack{
-                    Button(action: {showActionSheet.toggle()}){
-                        Rounded_Image_Text_Button(iconText: "camera", buttonText: "Foğraf Ekle")
-                    }.buttonStyle(.plain)
+                if let data = selectedImageData, let uiImage = UIImage(data: data) {
+                    ZStack(alignment: .topTrailing) {
+                        Button(action: {showActionSheet.toggle()}){
+                            Image(uiImage: uiImage).resizable().frame(maxHeight: screenHeight * 0.4).cornerRadius(20)
+                        }.buttonStyle(.plain)
+                        Button(action: { selectedImageData = nil }) {
+                            Circle().fill(Color.navBarColor)
+                                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                                .overlay(Image(systemName: "trash").foregroundColor(.white))
+                                .shadow(radius: 2).padding(5)
+                        }.buttonStyle(.plain)
+                    }
+                } else {
+                    VStack{
+                        Button(action: {showActionSheet.toggle()}){
+                            Rounded_Image_Text_Button(iconText: "camera", buttonText: "Foğraf Ekle")
+                        }.buttonStyle(.plain)
+                    }
                 }
             }
-        }
-        /* iOS 16
-          .onChange(of: selectedPhotos){ photos in
-              guard let item = selectedPhotos.first else {
-                  errorText = "Resim Yüklenemedi"
-                  showError.toggle()
-                  return
-              }
-              item.loadTransferable(type: Data.self){ result in
-                  switch result {
-                  case .success(let data):
-                      if let data = data { selectedImageData = data } else {
-                          errorText = "Resim Yüklenemedi"
-                          showError.toggle()
-                          return
-                      }
-                  case .failure(_):
+            /* iOS 16
+              .onChange(of: selectedPhotos){ photos in
+                  guard let item = selectedPhotos.first else {
                       errorText = "Resim Yüklenemedi"
                       showError.toggle()
                       return
                   }
+                  item.loadTransferable(type: Data.self){ result in
+                      switch result {
+                      case .success(let data):
+                          if let data = data { selectedImageData = data } else {
+                              errorText = "Resim Yüklenemedi"
+                              showError.toggle()
+                              return
+                          }
+                      case .failure(_):
+                          errorText = "Resim Yüklenemedi"
+                          showError.toggle()
+                          return
+                      }
+                  }
               }
-          }
-          */
-        .confirmationDialog("", isPresented: $showActionSheet) {
-            Button("Kamera") { showCamera.toggle() }
-            Button("Galeri") { showGallery.toggle() }
+              */
+            .confirmationDialog("", isPresented: $showActionSheet) {
+                Button("Kamera") { showCamera.toggle() }
+                Button("Galeri") { showGallery.toggle() }
+            }
+            /* iOS 16.0+
+             .alert("Hata!", isPresented: $showError, actions: {Button("Ok") {}}, message: {Text(errorText)})
+             .photosPicker(isPresented: $showPhotosPicker, selection: $selectedPhotos, maxSelectionCount: 1,  matching:.images)
+            */
+            .sheet(isPresented: $showGallery) { ImagePicker(selectedImageData: $selectedImageData, sourceType: .savedPhotosAlbum).ignoresSafeArea() }
+            .sheet(isPresented: $showCamera){ ImagePicker(selectedImageData: $selectedImageData, sourceType: .camera).ignoresSafeArea() }
+        } else {
+            VStack{
+                VStack(alignment: .leading){
+                    Rectangle().fill(.gray).frame(height: screenHeight * 0.001).cornerRadius(50)
+                    Spacer().frame(height: screenHeight * 0.02)
+                    Text("Notlarım")
+                    Spacer().frame(height: screenHeight * 0.009)
+                    ZStack(alignment: .topLeading){
+                        UITextFieldViewRepresentable(text: $note, textStyle: $textStyle, keyboardType: .default)
+                        if note == "" { Text("Not Ekle...").padding(EdgeInsets(top: 10, leading: 9, bottom: 0, trailing: 0)).foregroundColor(.gray) }
+                    }.frame(width: screenWidth * 0.9, height: screenHeight * 0.1)
+                    
+                    Spacer().frame(height: screenHeight * 0.02)
+                }
+                if let data = selectedImageData, let uiImage = UIImage(data: data) {
+                    ZStack(alignment: .topTrailing) {
+                        Button(action: {showActionSheet.toggle()}){
+                            Image(uiImage: uiImage).resizable().frame(maxHeight: screenHeight * 0.4).cornerRadius(20)
+                        }.buttonStyle(.plain)
+                        Button(action: { selectedImageData = nil }) {
+                            Circle().fill(Color.navBarColor)
+                                .frame(width: screenWidth * 0.1, height: screenWidth * 0.1)
+                                .overlay(Image(systemName: "trash").foregroundColor(.white))
+                                .shadow(radius: 2).padding(5)
+                        }.buttonStyle(.plain)
+                    }
+                } else {
+                    HStack {
+                        Group {
+                            Button(action: { showGallery.toggle() }) { Rounded_Image_Text_Button(iconText: "photo", buttonText: "Galeriden Ekle") }
+                            Button(action: { showCamera.toggle() }) { Rounded_Image_Text_Button(iconText: "camera", buttonText: "Kameradan Ekle") }
+                        }.buttonStyle(.plain)
+                    }
+                }
+            }
+            .sheet(isPresented: $showGallery) { ImagePicker(selectedImageData: $selectedImageData, sourceType: .savedPhotosAlbum).ignoresSafeArea() }
+            .sheet(isPresented: $showCamera){ ImagePicker(selectedImageData: $selectedImageData, sourceType: .camera).ignoresSafeArea() }
         }
-        .alert("Hata!", isPresented: $showError, actions: {Button("Ok") {}}, message: {Text(errorText)})
-        .sheet(isPresented: $showGallery) { ImagePicker(selectedImageData: $selectedImageData, sourceType: .savedPhotosAlbum).ignoresSafeArea() }
-        .sheet(isPresented: $showCamera){ ImagePicker(selectedImageData: $selectedImageData, sourceType: .camera).ignoresSafeArea() }
-        /* iOS 16 Gallery Photo Picker
-         .photosPicker(isPresented: $showPhotosPicker, selection: $selectedPhotos, maxSelectionCount: 1,  matching:.images)
-        */
     }
 }
+
+
+
 

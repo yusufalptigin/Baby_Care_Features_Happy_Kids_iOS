@@ -18,6 +18,7 @@ struct PDF_Displays: View {
             HStack{
                 Spacer().frame(width: screenWidth * 0.02)
                 Text(pageName).font(.system(size: screenWidth * 0.05))
+                Spacer()
             }
             if pageName == "Emzirme" && !hkViewModel.nursingObjects.isEmpty { Nursing_PDF_Display() }
             else if pageName == "Biberon" && !hkViewModel.bottleObjects.isEmpty { Bottle_PDF_Display() }
@@ -27,7 +28,11 @@ struct PDF_Displays: View {
             else if pageName == "Uyku" && !hkViewModel.sleepObjects.isEmpty { Sleep_PDF_Display() }
             else if pageName == "Gezinti" && !hkViewModel.travelObjects.isEmpty { Travel_PDF_Display() }
             else if pageName == "Banyo" && !hkViewModel.bathObjects.isEmpty { Bath_PDF_Display() }
-            else { Health_PDF_Display(pageChoice: pageName) }
+            else {
+                if checkIfHealthObjectExistsForPage(healthPage: pageName, healthObjects: hkViewModel.healthObjects) {
+                    Health_PDF_Display(pageChoice: pageName)
+                }
+            }
             Spacer()
         }.frame(maxHeight: .infinity)
     }
@@ -76,7 +81,7 @@ struct Bottle_PDF_Display: View {
                     Text("").opacity(0).frame(width: screenWidth * 0.3)
                     VStack(alignment: .leading) {
                         Text("\(dateToString(bottleObject.date))")
-                        Long_Text_Display(text: bottleObject.amount)
+                        Long_Text_Display(text: "\(bottleObject.amount) mL")
                         Text(bottleObject.choice)
                     }
                 }
@@ -131,7 +136,7 @@ struct Milking_PDF_Display: View {
                     Text("").opacity(0).frame(width: screenWidth * 0.3)
                     VStack(alignment: .leading) {
                         Text("\(dateToString(milkingObject.date))")
-                        Long_Text_Display(text: milkingObject.amount)
+                        Long_Text_Display(text: "\(milkingObject.amount) mL")
                         Text(milkingObject.breast)
                     }
                 }

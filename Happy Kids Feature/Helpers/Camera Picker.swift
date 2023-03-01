@@ -40,7 +40,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             
             if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
                 let imageSaver = ImageSaver()
-                imageSaver.writeToPhotoAlbum(image: image)
+                if parent.sourceType == .camera { imageSaver.writeToPhotoAlbum(image: image) }
                 parent.selectedImageData = image.jpegData(compressionQuality: 1.0)!
             }
             parent.presentationMode.wrappedValue.dismiss()

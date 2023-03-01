@@ -15,6 +15,7 @@ struct Add_Activity_Object: View {
     @State private var showStartDatePicker: Bool = false
     @State private var showEndDatePicker: Bool = false
     @State private var showDiaperDatePicker: Bool = false
+    @State private var textStyle = UIFont.TextStyle.body
     @State var note: String = ""
     @State var selectedImageData: Data? = nil
     @State var diaperDate: Date = Date()
@@ -76,7 +77,7 @@ struct Add_Activity_Object: View {
                             if activityChoice == "Gezinti" {
                                 Text("Konum")
                                 Spacer().frame(height: screenHeight * 0.009)
-                                Custom_Dropdown_Button(bindingText: $travelLocation, isDecimalPadKeyboard: false)
+                                Custom_TextField(text: $travelLocation, keyboardTpye: .default, placeholderText: "Ekleyin..")
                                 Spacer().frame(height: screenHeight * 0.02)
                             }
                             Start_and_End_Dates(
@@ -120,14 +121,13 @@ struct Add_Activity_Object: View {
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack {
-                            Button(action: {
-                                if isUpdate {
+                            if isUpdate {
+                                Button(action: {
                                     if activityChoice == "Bebek Bezi" { deleteDiaperObject(diaperObject!) }
                                     else if activityChoice == "Uyku" { deleteSleepObject(sleepObject!) }
                                     else if activityChoice == "Gezinti" { deleteTravelObject(travelObject!) }
                                     else if activityChoice == "Banyo" { deleteBathObject(bathObject!) }
-                                }
-                            }) { Image(systemName: "trash").foregroundColor(.white) }
+                                }) { Image(systemName: "trash").foregroundColor(.white) } }
                             Button(action: {
                                 if activityChoice == "Bebek Bezi" {
                                     if isUpdate {

@@ -92,7 +92,7 @@ struct Add_Food_Object: View {
                     if foodChoice != "Mama" {
                         Text("Miktal (mL)")
                         Spacer().frame(height: screenHeight * 0.009)
-                        Custom_Dropdown_Button(bindingText: $babyBottleAmount, isDecimalPadKeyboard: true)
+                        Custom_TextField(text: $babyBottleAmount, keyboardTpye: .decimalPad, placeholderText: "Ekleyin...")
                         if foodChoice == "Biberon" {
                             Spacer().frame(height: screenHeight * 0.02)
                             Picker("", selection: $babyBottleOption) {
@@ -105,7 +105,7 @@ struct Add_Food_Object: View {
                     } else if foodChoice == "Mama" {
                         Text("Tüketilen Gıda")
                         Spacer().frame(height: screenHeight * 0.009)
-                        Custom_Dropdown_Button(bindingText: $babyFood, isDecimalPadKeyboard: false)
+                        Custom_TextField(text: $babyFood, keyboardTpye: .default, placeholderText: "Ekleyin...")
                     }
                     Date_Selection_Button(datePicker: $showRegularDatePicker, date: $regularDate)
                     if foodChoice == "Süt Sağma" {

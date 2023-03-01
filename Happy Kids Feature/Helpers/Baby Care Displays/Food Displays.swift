@@ -28,7 +28,7 @@ struct Nursing_Objects_Display: View {
                 ) { ZStack {
                         Rectangle().fill(Color.navBarColorLight).cornerRadius(screenWidth * 0.065)
                         HStack(alignment: .top, spacing: 0){
-                            Circle_Icon_Display(iconText: "powersleep")
+                            Circle_Icon_Display_Image(iconText: "breast_feeding")
                             ZStack (alignment: .leading){
                                 Long_Invisible_Text()
                                 VStack(alignment: .leading){
@@ -68,7 +68,7 @@ struct Bottle_Objects_Display: View {
                 ) { ZStack {
                         Rectangle().fill(Color.navBarColorLight).cornerRadius(screenWidth * 0.065)
                         HStack(alignment: .top, spacing: 0){
-                            Circle_Icon_Display(iconText: "powersleep")
+                            Circle_Icon_Display_Image(iconText: "baby_bottle")
                             ZStack (alignment: .leading){
                                 Long_Invisible_Text()
                                 VStack(alignment: .leading){
@@ -105,7 +105,7 @@ struct Food_Objects_Display: View {
                 ) { ZStack {
                         Rectangle().fill(Color.navBarColorLight).cornerRadius(screenWidth * 0.065)
                         HStack(alignment: .top, spacing: 0){
-                            Circle_Icon_Display(iconText: "powersleep")
+                            Circle_Icon_Display_Image(iconText: "food")
                             ZStack (alignment: .leading){
                                 Long_Invisible_Text()
                                 VStack(alignment: .leading){
@@ -142,7 +142,7 @@ struct Milking_Objects_Display: View {
                 ) { ZStack {
                         Rectangle().fill(Color.navBarColorLight).cornerRadius(screenWidth * 0.065)
                         HStack(alignment: .top, spacing: 0){
-                            Circle_Icon_Display(iconText: "powersleep")
+                            Circle_Icon_Display_Image(iconText: "milking")
                             ZStack (alignment: .leading){
                                 Long_Invisible_Text()
                                 VStack(alignment: .leading){

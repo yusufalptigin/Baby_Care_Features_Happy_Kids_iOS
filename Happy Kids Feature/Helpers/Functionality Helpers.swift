@@ -25,10 +25,63 @@ extension Color {
     public static let navBarColorLight = Color(red: 190/255, green: 61/255, blue: 88/255, opacity: 0.2)
 }
 
+// Baby Care Main Page
+
+func onApperBabyCare(hkViewModel: HKViewModel) {
+    let segmentedControlAppearance = UISegmentedControl.appearance()
+    let attributesNormal = [ NSAttributedString.Key.foregroundColor : Color.UI_navBarColor ]
+    let attributesSelected = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
+    
+    segmentedControlAppearance.selectedSegmentTintColor = Color.UI_navBarColor
+    segmentedControlAppearance.setTitleTextAttributes(attributesNormal, for: .normal)
+    segmentedControlAppearance.setTitleTextAttributes(attributesSelected, for: .selected)
+  
+    let navigationBarAppeareance = UINavigationBarAppearance()
+    navigationBarAppeareance.configureWithOpaqueBackground()
+    navigationBarAppeareance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    navigationBarAppeareance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    navigationBarAppeareance.backgroundColor = Color.UI_navBarColor
+    UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppeareance
+    UINavigationBar.appearance().standardAppearance = navigationBarAppeareance
+
+    // Get Food Objects
+    
+    hkViewModel.getAllNursingObjects()
+    hkViewModel.getAllBottleObjects()
+    hkViewModel.getAllFoodObjects()
+    hkViewModel.getAllMilkingObjects()
+    
+    // Get Activity Objects
+    
+    hkViewModel.getAllDiaperObjects()
+    hkViewModel.getAllSleepObjects()
+    hkViewModel.getAllTravelObjects()
+    hkViewModel.getAllBathObjects()
+    
+    // Get Health Objects
+    
+    hkViewModel.getAllHealthObjects()
+}
+
+// PDF Displays
+
+func checkIfPdfDisplayExists(pageName: String, hkViewModel: HKViewModel) -> Bool {
+    if pageName == "Emzirme" && !hkViewModel.nursingObjects.isEmpty { return true }
+    else if pageName == "Biberon" && !hkViewModel.bottleObjects.isEmpty { return true }
+    else if pageName == "Mama" && !hkViewModel.foodObjects.isEmpty { return true }
+    else if pageName == "Süt Sağma" && !hkViewModel.milkingObjects.isEmpty { return true }
+    else if pageName == "Bebek Bezi" && !hkViewModel.diaperObjects.isEmpty { return true }
+    else if pageName == "Uyku" && !hkViewModel.sleepObjects.isEmpty { return true }
+    else if pageName == "Gezinti" && !hkViewModel.travelObjects.isEmpty { return true }
+    else if pageName == "Banyo" && !hkViewModel.bathObjects.isEmpty { return true }
+    else { if checkIfHealthObjectExistsForPage(healthPage: pageName, healthObjects: hkViewModel.healthObjects){ return true } }
+    return false
+}
+
 // Date Functions
 
 var dateClosedRange: ClosedRange<Date> {
-    let todayDate = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: .now)
+    let todayDate = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: Date())
     let startDateComponents = DateComponents(
         timeZone: TimeZone.current,
         year: todayDate.year! - 5, month: todayDate.month, day: todayDate.day, hour: 0, minute: 0, second: 0)

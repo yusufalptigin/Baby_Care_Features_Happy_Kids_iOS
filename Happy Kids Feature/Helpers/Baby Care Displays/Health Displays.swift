@@ -18,7 +18,9 @@ struct Health_Objects_Display: View {
             ForEach(hkViewModel.healthObjects.reversed(), id: \.id) { healthObject in
                 if healthObject.choice_name == healthPage {
                     NavigationLink(destination: Add_Health_Object(
-                        note: healthObject.note, selectedImageData: healthObject.image_data,
+                        healthDate: healthObject.date,
+                        note: healthObject.note,
+                        selectedImageData: healthObject.image_data,
                         healthChoice: healthObject.name,
                         healthObject: healthObject,
                         isUpdate: true,

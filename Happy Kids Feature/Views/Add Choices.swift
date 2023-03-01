@@ -74,8 +74,9 @@ struct Add_Choices: View {
 struct Choice_Circle_And_Name: View {
     
     @EnvironmentObject var hkViewModel: HKViewModel
-    @FocusState private var focusKeyboard: Bool
+    // iOS 15.0+ @FocusState private var focusKeyboard: Bool
     
+    @State private var textStyle = UIFont.TextStyle.body
     @State private var showHealthMenu: Bool = false
     @State private var showAddCustom: Bool = false
     @State private var navigateWithChosen: Bool = false
@@ -90,45 +91,59 @@ struct Choice_Circle_And_Name: View {
     let index: Int
     
     var body: some View {
-        VStack{
-            ZStack{
-                NavigationLink(isActive: $navigateWithChosen, destination: {
-                    Add_Health_Object(healthChoice: chosenText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
-                }, label: { Text("").opacity(0) })
-                NavigationLink(isActive: $navigateWithCustom, destination: {
-                    Add_Health_Object(healthChoice: customText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
-                }, label: { Text("").opacity(0) })
-                if choiceTitle == "Sağlık" {
-                    Button(action: {showHealthMenu.toggle()}) {
-                        Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
-                } else if choiceTitle == "Aktivite" {
-                    NavigationLink(destination: Add_Activity_Object(activityChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
-                    { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
-                    
-                } else if choiceTitle == "Yemek" {
-                    NavigationLink(destination: Add_Food_Object(foodChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
-                    { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
+        if #available(iOS 15.0, *) {
+            VStack{
+                ZStack{
+                    NavigationLink(isActive: $navigateWithChosen, destination: {
+                        Add_Health_Object(healthChoice: chosenText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
+                    }, label: { Text("").opacity(0) })
+                    NavigationLink(isActive: $navigateWithCustom, destination: {
+                        Add_Health_Object(healthChoice: customText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
+                    }, label: { Text("").opacity(0) })
+                    if choiceTitle == "Sağlık" {
+                        Button(action: {showHealthMenu.toggle()}) {
+                            Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
+                    } else if choiceTitle == "Aktivite" {
+                        NavigationLink(destination: Add_Activity_Object(activityChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
+                        { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
+                        
+                    } else if choiceTitle == "Yemek" {
+                        NavigationLink(destination: Add_Food_Object(foodChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
+                        { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle).foregroundColor(.black) }
+                    }
+                }
+            }.alert("Seçiniz", isPresented: $showHealthMenu) {
+                Button("Ekle", action: { navigateWithCustom.toggle() })
+                ForEach(0...(health.healthChoiceSpecifics[index].count - 1), id: \.self) { choiceIndex in
+                    Button(action: {
+                        chosenText = health.healthChoiceSpecifics[index][choiceIndex]
+                        navigateWithChosen.toggle()
+                    }) { Text(health.healthChoiceSpecifics[index][choiceIndex]) }
+                }
+                Button("İptal", action: {}).keyboardShortcut(.defaultAction)
+            }
+        } else {
+            VStack{
+                ZStack{
+                    NavigationLink(isActive: $navigateWithChosen, destination: {
+                        Add_Health_Object(healthChoice: chosenText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
+                    }, label: { Text("").opacity(0) })
+                    NavigationLink(isActive: $navigateWithCustom, destination: {
+                        Add_Health_Object(healthChoice: customText, isUpdate: false, choiceName: choiceName, choiceIndex: index).environmentObject(hkViewModel)
+                    }, label: { Text("").opacity(0) })
+                    if choiceTitle == "Sağlık" {
+                        Button(action: { navigateWithCustom.toggle() }) {
+                            Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle) }
+                    } else if choiceTitle == "Aktivite" {
+                        NavigationLink(destination: Add_Activity_Object(activityChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
+                        { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle) }
+                        
+                    } else if choiceTitle == "Yemek" {
+                        NavigationLink(destination: Add_Food_Object(foodChoice: choiceName, isUpdate: false).environmentObject(hkViewModel))
+                        { Choice_Circle_And_Name_View(iconText: iconText, choiceName: choiceName, choiceTitle: choiceTitle) }
+                    }
                 }
             }
-        }.alert("Seçiniz", isPresented: $showHealthMenu) {
-            Button("Ekle", action: { showAddCustom.toggle() })
-            ForEach(0...(health.healthChoiceSpecifics[index].count - 1), id: \.self) { choiceIndex in
-                Button(action: {
-                    chosenText = health.healthChoiceSpecifics[index][choiceIndex]
-                    navigateWithChosen.toggle()
-                }) { Text(health.healthChoiceSpecifics[index][choiceIndex]) }
-            }
-            Button("İptal", action: {}).keyboardShortcut(.defaultAction)
-        }.alert("", isPresented: $showAddCustom) {
-            TextField("Ekleyin...", text: $customText).disableAutocorrection(true).textInputAutocapitalization(.never)
-                .ignoresSafeArea(.keyboard, edges: .bottom)
-                .keyboardType(index == 2 ? .decimalPad : .default)
-                .onAppear { DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { focusKeyboard = true } }.focused($focusKeyboard)
-                .toolbar { ToolbarItemGroup(placement: .keyboard) {
-                        Text("")
-                        Button(action: { focusKeyboard = false }){ Text("Bitti").foregroundColor(Color.navBarColor) } } }
-            Button("İptal", action: {}).keyboardShortcut(.defaultAction)
-            Button(action: { navigateWithCustom.toggle() }){ Text("Ekle") }
         }
     }
 }

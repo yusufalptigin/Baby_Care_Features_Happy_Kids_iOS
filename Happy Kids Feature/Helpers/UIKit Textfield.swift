@@ -12,39 +12,60 @@ import UIKit
 struct UITextFieldViewRepresentable: UIViewRepresentable {
     
     @Binding var text: String
-    let placeholderText: String
-    let padding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-
-    // padding, multiline, text binding, focus state, keypad, textfieldları değiştirme
+    @Binding var textStyle: UIFont.TextStyle
+    let keyboardType: UIKeyboardType
     
-    func makeUIView(context: Context) -> some UIView {
-        let textfield = UITextField()
+    func makeUIView(context: Context) -> UITextView {
+        
+        // Initialize
+        let textfield = UITextView()
         textfield.delegate = context.coordinator
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [.foregroundColor: UIColor.gray])
+        textfield.keyboardType = keyboardType
+        textfield.text = text
+        
+        // Style
+        textfield.font = UIFont.preferredFont(forTextStyle: textStyle)
+        textfield.textColor = UIColor.black
         textfield.layer.cornerRadius = 5.0
         textfield.layer.borderWidth = 4.0
         textfield.layer.borderColor = Color.UI_navBarColor.cgColor
+        textfield.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        
+        // Interactions
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
         textfield.spellCheckingType = .no
+        textfield.isSelectable = true
+        textfield.isUserInteractionEnabled = true
+        
+        // Toolbar
+        let toolbar = UIToolbar()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Bitti", style: .plain, target: textfield, action: #selector(textfield.endEditing(_:)))
+        doneButton.tintColor = Color.UI_navBarColor
+        toolbar.setItems([flexSpace, doneButton], animated: true)
+        toolbar.sizeToFit()
+        textfield.inputAccessoryView = toolbar
 
         return textfield
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) { }
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.text = text
+        uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
+    }
     
     func makeCoordinator() -> Coordinator { Coordinator(self) }
     
-    final class Coordinator: NSObject, UITextFieldDelegate {
+    final class Coordinator: NSObject, UITextViewDelegate {
         
         var parent: UITextFieldViewRepresentable
         
         init(_ parent: UITextFieldViewRepresentable) { self.parent = parent }
         
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            parent.text = textField.text ?? ""
-        }
-
+        func textViewDidChange(_ textView: UITextView) { parent.text = textView.text }
+        
     }
- 
 }
+
+
